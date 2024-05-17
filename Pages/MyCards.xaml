@@ -1,0 +1,55 @@
+﻿<Page x:Class="MyCards.Pages.MyCards"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MyCards.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MyCards" >
+    <Page.DataContext>
+        <local:CardViewModel/>
+    </Page.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"></ColumnDefinition>
+                <ColumnDefinition Width="500"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Name="ddd" VerticalAlignment="Center">Kategorie</Label>
+            <ComboBox x:Name="comboBox_Categories" ItemsSource="{Binding Categories}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedItem="{Binding MyCategory}" SelectedIndex="0" Height="35" Grid.Column="1" Margin="20,0" SelectionChanged="comboBox_Categories_SelectionChanged"></ComboBox>
+        </Grid>
+        <ListView Grid.Row="1" ItemsSource="{Binding Cards}" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel Name="wrapPanel">
+                        <Border MouseDown="btn_ChangeCard" x:Name="border" Margin="0,5" Height="200" Width="200" Background="Green" CornerRadius="10" RenderTransformOrigin="0.5,0.5">
+                            <DockPanel x:Name="dockPanel">
+                                <Button Name="btn_Delete" DockPanel.Dock="Top" Background="Transparent" Width="30" Height="30" Click="btn_Delete" HorizontalAlignment="Right">
+                                    <StackPanel>
+                                        <Image Width="20" Height="30" x:Name="img_Delete" Source="/Pages/delete-button.png"/>
+                                    </StackPanel>
+                                </Button>
+                                <Label x:Name="lbl_Card" FontSize="20" Content="{Binding Front}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </DockPanel>
+                        </Border>
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

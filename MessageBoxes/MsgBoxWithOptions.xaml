@@ -1,0 +1,17 @@
+﻿<Window x:Class="MyCards.MessageBoxes.MsgBoxWithOptions"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyCards.MessageBoxes"
+        mc:Ignorable="d"
+        Title="MsgBoxWithOptions" Height="150" Width="1000" ResizeMode="NoResize" Background="#1C2F3E">
+    <Grid>
+        <TextBlock x:Name="txtBox_Message" Margin="20"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20" Height="50">
+            <Button x:Name="btn_Yes" Content="Ja" Width="80" Margin="5" Click="btnYes_Click" Background="Transparent"/>
+            <Button x:Name="btn_No" Content="Nein" Width="80" Margin="5" Click="btnNo_Click" Background="Transparent"/>
+            <Button x:Name="btn_Cancel" Content="Schließen" Width="80" Margin="5" Click="btnCancel_Click" Background="Transparent"/>
+        </StackPanel>
+    </Grid>
+</Window>

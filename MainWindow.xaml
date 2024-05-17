@@ -1,0 +1,48 @@
+﻿<Window x:Class="MyCards.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyCards.ViewModels"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="1000" Background="#1C2F3E">
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!--Left Sidebar Start-->
+            <StackPanel Grid.RowSpan="2" HorizontalAlignment="Left" Width="250" Background="#14212B">
+                <Button x:Name="My_Cards" Margin="0,100,0,0" HorizontalContentAlignment="Left" Padding="20,0,0,0" Background="Transparent" BorderBrush="Transparent" Height="50" Click="My_Cards_Click">Meine Karten</Button>
+                <Button x:Name="Add_Category" Background="Transparent" HorizontalContentAlignment="Left" Padding="20,0,0,0" BorderBrush="Transparent" Height="50" Click="Add_Category_Click">Kategorien</Button>
+                <Button x:Name="add_Card" Background="Transparent" HorizontalContentAlignment="Left" Padding="20,0,0,0" BorderBrush="Transparent" Height="50" Foreground="White" Click="add_Card_Click">Karten hinzufügen</Button>
+                <Button x:Name="My_Profile" Background="Transparent" HorizontalContentAlignment="Left" Padding="20,0,0,0" BorderBrush="Transparent" Height="50" Click="My_Profile_Click">Mein Profil</Button>
+            </StackPanel>
+            <!--Left Sidebar End-->
+            <!--Top Grid Start-->
+            <Grid Grid.ColumnSpan="2" VerticalAlignment="Top" Height="50" Background="#233C4F">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Margin="10" VerticalAlignment="Center" FontWeight="Bold" FontSize="20">Karteikarten</Label>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                    <Label FontWeight="Bold">Hallo,</Label>
+                    <Label x:Name="lbl_Name" FontWeight="Bold"/>
+                </StackPanel>
+                <Button x:Name="logout" BorderBrush="Transparent" Grid.Column="2" Height="40" Width="100" HorizontalAlignment="Right" VerticalAlignment="Center" Background="OrangeRed" Click="logout_Click">Ausloggen</Button>
+            </Grid>
+            <!--Top Grid End-->
+
+            <!--Dynamic Content Start-->
+            <Frame x:Name="ContentFrame" Grid.Column="1" Grid.Row="1" Margin="10, 20" NavigationUIVisibility="Hidden"/>
+            <!--Dynamic Content End-->
+        </Grid>
+    </Grid>
+</Window>

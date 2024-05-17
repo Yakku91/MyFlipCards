@@ -1,0 +1,24 @@
+﻿<Window x:Class="MyCards.MessageBoxes.DialogBoxEditCategory"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyCards.ViewModels"
+        mc:Ignorable="d"
+        Title="DialogBoxEditCategory" Height="200" Width="800" Background="#1C2F3E">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="Bezeichnung" Margin="0,0,10,0"></Label>
+        <TextBox x:Name="txtBox_Name" Width="500"></TextBox>
+        </StackPanel>
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20" Height="40">
+            <Button x:Name="btn_Yes" Content="Änderungen speichern" Width="160" Margin="5" Click="btnYes_Click" Background="Transparent"/>
+            <Button x:Name="btn_Cancel" Content="Abbrechen" Width="100" Margin="5" Click="btnCancel_Click" Background="Transparent"/>
+            <Button x:Name="btn_DeleteCategory" Content="Kategorie löschen" Width="150" Margin="5" Click="btnDeleteCategory_Click" Background="OrangeRed"/>
+        </StackPanel>
+    </Grid>
+</Window>
